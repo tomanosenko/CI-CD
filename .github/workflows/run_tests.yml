@@ -1,11 +1,17 @@
-name: CI Full Tests
+name: CI Full Tests for new branch
 
 on:
   workflow_dispatch:
   push:
-    branches: ['main', 'CI/CD-task']
-  pull_request:
-    branches: ['main']
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -13,7 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version:
+          - '18.x'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -33,6 +43,8 @@ jobs:
       - name: Run tests
         run: npm run test
 
+      - run: echo $GITHUB_REF
+
       - name: Upload report
         uses: actions/upload-artifact@v3
         with:
@@ -40,13 +52,23 @@ jobs:
           if-no-files-found: error
           path: ./reports/html-report
 
-      - name: send telegram message on push
+      - name: Send telegram message on push
         uses: appleboy/telegram-action@master
         with:
-          to: -1002222484539
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             ${{ github.actor }} created commit:
             Commit message: ${{ github.event.commits[0].message }}
             Repository: ${{ github.repository }}
             See changes: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './reports/html-report'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
