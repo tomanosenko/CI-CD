@@ -1,54 +1,51 @@
-export async function Manage_labels_page ({page}) {
-
+export async function Manage_labels_page({ page }) {
   const visit = async () => {
-    await page.goto('https://try.vikunja.io');
-  };
+    await page.goto('https://try.vikunja.io')
+  }
 
-  const fillName = async (name) => {
-    await page.fill('[placeholder="e.g. frederick"]', name);
-  };
+  const fillName = async name => {
+    await page.fill('[placeholder="e.g. frederick"]', name)
+  }
 
-  const fillPassword = async (password) => {
-    await page.fill('[placeholder="e.g. •••••••••••"]', password);
-  };
+  const fillPassword = async password => {
+    await page.fill('[placeholder="e.g. •••••••••••"]', password)
+  }
 
   const clickLogin = async () => {
-    await page.click('button:has-text("Login")');
-  };
-   
-  const click_labels = async() => {
-    await page.click('a:has-text("Labels")');
-  };
-  
-  const click_new_label = async() => {
-    await page.click('a:has-text("New Label")');
-  };
-  
-  const fill_title = async() => {
-    await page.getByPlaceholder('The label title goes here…').fill('Label');
-  };
+    await page.click('button:has-text("Login")')
+  }
 
-  const create_label = async() => {
-    await page.click('button:has-text("Create")');
-  };
+  const click_labels = async () => {
+    await page.click('a:has-text("Labels")')
+  }
 
+  const click_new_label = async () => {
+    await page.click('a:has-text("New Label")')
+  }
 
-const login = async() => {
-  await visit();
-  await fillName('Toma');
-  await fillPassword('Pipipupu');
-  await clickLogin();
-};
+  const fill_title = async () => {
+    await page.getByPlaceholder('The label title goes here…').fill('Label')
+  }
 
-const manage = async() =>{
-  await click_labels();
-  await click_new_label();
-  await fill_title();
-  await create_label();
-}
+  const create_label = async () => {
+    await page.click('button:has-text("Create")')
+  }
 
-return {
+  const login = async () => {
+    await visit()
+    await fillName('Toma')
+    await fillPassword('Pipipupu')
+    await clickLogin()
+  }
 
+  const manage = async () => {
+    await click_labels()
+    await click_new_label()
+    await fill_title()
+    await create_label()
+  }
+
+  return {
     visit,
     fillName,
     fillPassword,
@@ -59,5 +56,5 @@ return {
     create_label,
     login,
     manage,
-  };
+  }
 }
