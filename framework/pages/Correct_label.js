@@ -15,19 +15,19 @@ export async function CorrectLabel({ page }) {
     await page.click('button:has-text("Login")')
   }
 
-  const click_labels = async () => {
+  const clickLabels = async () => {
     await page.click('a:has-text("Labels")')
   }
 
-  const click_new_label = async () => {
+  const clickNewLabel = async () => {
     await page.click('a:has-text("New Label")')
   }
 
-  const fill_title = async () => {
+  const fillTitle = async () => {
     await page.getByPlaceholder('The label title goes here…').fill('Label')
   }
 
-  const create_label = async () => {
+  const createLabel = async () => {
     await page.click('button:has-text("Create")')
   }
 
@@ -39,21 +39,21 @@ export async function CorrectLabel({ page }) {
   }
 
   const manage = async () => {
-    await click_labels()
-    await click_new_label()
-    await fill_title()
-    await create_label()
+    await clickLabels()
+    await clickNewLabel()
+    await fillTitle()
+    await createLabel()
   }
 
-  const label_click = async () => {
+  const labelClick = async () => {
     await page.getByRole('button', { name: 'Label' }).click()
   }
 
-  const label_rename = async () => {
+  const labelRename = async () => {
     await page.getByPlaceholder('The label title goes here…').fill(`New label`)
   }
 
-  const label_comment = async () => {
+  const labelComment = async () => {
     await page.locator('.tiptap__editor > .tiptap').fill('Это очень срочно')
   }
 
@@ -62,9 +62,9 @@ export async function CorrectLabel({ page }) {
   }
 
   const correction = async () => {
-    await label_click()
-    await label_rename()
-    await label_comment()
+    await labelClick()
+    await labelRename()
+    await labelComment()
     await save()
   }
 
@@ -73,10 +73,10 @@ export async function CorrectLabel({ page }) {
     fillName,
     fillPassword,
     clickLogin,
-    click_labels,
-    click_new_label,
-    fill_title,
-    create_label,
+    clickLabels,
+    clickNewLabel,
+    fillTitle,
+    createLabel,
     login,
     manage,
     correction,

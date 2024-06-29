@@ -7,5 +7,3 @@ build
 /playwright-report/
 /blob-report/
 /playwright/.cache/
-/framework
-/e2e

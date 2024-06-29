@@ -22,17 +22,17 @@ export async function logoutPage({ page }) {
     await clickLogin()
   }
 
-  const click_profile = async name => {
+  const clickProfile = async name => {
     await page.getByRole('button', { name }).click()
   }
 
-  const click_logout = async () => {
+  const clickLogout = async () => {
     await page.getByRole('button', { name: 'Logout' }).click()
   }
 
   const logout = async () => {
-    await click_profile('Toma')
-    await click_logout()
+    await clickProfile('Toma')
+    await clickLogout()
   }
 
   return {
