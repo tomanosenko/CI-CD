@@ -1,22 +1,24 @@
-const { I } = inject();
+const { I } = inject()
 
 module.exports = {
-  clickLinkLabel(){
+  clickLinkLabel() {
     I.click('//a[@href="/labels"]')
   },
-  newLabel(){
+  newLabel() {
     I.click('//a[@href="/labels/new"]//span')
   },
-  LabelTitle(){
-    I.Fill('//input[@id="labelTitle"]', 'Label')
+  LabelTitle() {
+    I.fillField('//input[@id="labelTitle"]', 'Label')
   },
-  createLabel(){
-    I.click('//button[contains(@class, "base-button--type")][contains(@style, "button-white")]//span[@class="icon is-small"]')
+  createLabel() {
+    I.fillField(
+      '//button[contains(@class, "base-button--type")][contains(@style, "button-white")]//span[@class="icon is-small"]',
+    )
   },
-  clickToDelete(){
+  clickToDelete() {
     I.click('//button[contains(@class, "delete is-small")]')
   },
-  DoIt(){
+  DoIt() {
     I.click('//* [text()="Do it!"]')
   },
 }
