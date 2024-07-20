@@ -23,6 +23,15 @@ module.exports = {
         jest: true,
       },
     },
+    {
+      files: [
+        'step_file.js',
+        'step_definitions/**/*.js',
+        'pages/**/*.js',
+        '_test/**/*_test.js',
+      ],
+      extends: ['plugin:codeceptjs/recommended'],
+    },
   ],
   parserOptions: {
     ecmaVersion: 'latest',
