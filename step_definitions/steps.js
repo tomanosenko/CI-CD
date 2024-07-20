@@ -1,6 +1,7 @@
 /* eslint-disable */
 const { I, AuthPage, LabelPage, TeamPage } = inject()
 
+//BDD tests
 //----------Test1--------------------
 
 Given('user opens login page', () => {
