@@ -12,7 +12,7 @@ module.exports = {
   },
   clickButton() {
     I.click(
-      '//button[@type="button"][contains(@class, "base-button")][@tabindex="4"]',
+      '//button[text()="Войти"]',
     )
   },
 }

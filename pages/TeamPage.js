@@ -2,7 +2,7 @@ const { I } = inject()
 
 module.exports = {
   clickLinkTeam() {
-    I.click('//a[@href="/teams"]"]')
+    I.click('//a[@href="/teams"]')
   },
   newTeam() {
     I.click('//a[@href="/teams/new"][contains(@class, "base-button")]')
@@ -19,7 +19,7 @@ module.exports = {
     I.click('//p[text()="Team"]')
   },
   AddUser() {
-    I.fillField('//input[contains(@placeholder, "a user")]', 'frog')
+    I.fillField('//input[contains(@placeholder, "пользователя")]', 'frog')
   },
   AddToTeam() {
     I.click('//button[contains(@class, "is-primary")]//span')
