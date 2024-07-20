@@ -1,13 +1,13 @@
 /* eslint-disable */
 const { I, AuthPage, LabelPage, TeamPage } = inject()
 
-//----------Test4--------------------
+//----------Test1--------------------
 
 Given('user opens login page', () => {
   I.amOnPage('login')
 })
 
-When('user enters credentials and click the button "Login"' , () => {
+When('user enters credentials and click the button "Login"', () => {
   AuthPage.FillName('Tomaaa')
   AuthPage.FillPassword('Pipipupuu')
   AuthPage.clickButton()
@@ -33,13 +33,13 @@ Then('user creates the team successfully', () => {
   I.see('Изменить команду')
 })
 
-//----------Test5--------------------
+//----------Test2--------------------
 
 Given('user opens login page', () => {
   I.amOnPage('login')
 })
 
-When('user enters credentials and click the button "Login"' , () => {
+When('user enters credentials and click the button "Login"', () => {
   AuthPage.FillName('Tomaaa')
   AuthPage.FillPassword('Pipipupuu')
   AuthPage.clickButton()
@@ -65,8 +65,7 @@ Then('the user adds a new user to the team successfully', () => {
   I.see('Участник')
 })
 
-
-//----------Test2--------------------
+//----------Test3--------------------
 
 Given('user opens login page', () => {
   I.amOnPage('login')
@@ -95,23 +94,22 @@ When('click the button "Create"', () => {
 })
 
 Then('user creates the label successfully', () => {
-  I.see("Label123")
+  I.see('Label123')
 })
 
-
-//----------Test3--------------------
+//----------Test4--------------------
 
 Given('user opens login page', () => {
   I.amOnPage('login')
 })
 
-When('user enters credentials and click the button "Login"' , () => {
+When('user enters credentials and click the button "Login"', () => {
   AuthPage.FillName('Tomaaa')
   AuthPage.FillPassword('Pipipupuu')
   AuthPage.clickButton()
 })
 
-When('click the link "Labels"' , () => {
+When('click the link "Labels"', () => {
   LabelPage.clickLinkLabel()
 })
 
@@ -124,10 +122,10 @@ When('click the button "Do it!"', () => {
 })
 
 Then('user deletes the label successfully', () => {
-  I.see("Меток сейчас нет.")
+  I.see('Меток сейчас нет.')
 })
 
-//----------Test1--------------------
+//----------Test5--------------------
 
 Given('user visit login page', () => {
   I.amOnPage('login')
@@ -145,5 +143,3 @@ When('click the button {string}', () => {
 Then('user logs in successfully', () => {
   I.see('Входящие')
 })
-
-

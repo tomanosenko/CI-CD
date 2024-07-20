@@ -11,8 +11,6 @@ module.exports = {
     I.fillField('//input[@id="password"]', password)
   },
   clickButton() {
-    I.click(
-      '//button[text()="Войти"]',
-    )
+    I.click('//button[text()="Войти"]')
   },
 }
